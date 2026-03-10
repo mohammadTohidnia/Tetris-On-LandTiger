@@ -1,0 +1,53 @@
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<span>
+The LandTiger LPC17XX board features 4 switches: Key1 (SW4), Key2 (SW3), INT0
+(SW2), RESET (SW1). These switches have several functions. See table below.
+</span>
+<table>
+<tr>
+<th>Key type</th>
+<th>Description</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td>Key1</td>
+<td>Connected to INT1 (P2.11), Active Low, Pull-Up R of 10K installed.</td>
+<td>SW4</td>
+</tr>
+<tr>
+<td>Key2</td>
+<td>Connected to INT2 (P2.12), Active Low, Pull-Up R of 10K installed.</td>
+<td>SW3, Secondary function to enter the USB ISP mode.</td>
+</tr>
+<tr>
+<td>INT0</td>
+<td>Connected to INT0 (P2.10) when JP5 is inserted. Active Low, Pull-Up R of 10K installed.</td>
+<td>SW2, Secondary function to enter the COM1 ISP mode.</td>
+</tr>
+<tr>
+<td>Reset</td>
+<td>Manual Reset</td>
+<td>SW1</td>
+</tr>
+</table>
+</body>
+</html>

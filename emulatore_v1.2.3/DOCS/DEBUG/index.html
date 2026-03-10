@@ -1,0 +1,136 @@
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.container
+{
+	overflow: hidden;
+	text-align: center;
+}
+
+.container img
+{
+	width: 100%;
+}
+</style>
+</head>
+<body>
+<span>
+LandTiger LPC17XX development board has onboard support for JTAG debugging,
+downloads and other features. The debugging port (CN4) provides access to the on-board
+JLINK emulator (U3). JLINK is a JTAG emulator designed for ARM cores. It connects via
+USB (CN4) to a PC running Microsoft Windows 2000, Windows XP, Windows 2003,
+Windows Vista or Windows 7. JLink has a built-in 20-pin JTAG connector (CN1), which is
+compatible with the standard 20-pin connector defined by ARM.
+The JTAG/SWD interface and JLINK emulator supports KEIL, IAR and other mainstream
+development environments.
+The JTAG/SWD interface (CN1) may also be connected to any external general purpose
+JTAG/SWD debugging device. In this case the on-board JLINK emulator must be disabled by
+inserting JP4.
+LED LD1 shows the current status of the JLINK debugger interface.
+</span>
+<div class="container">
+<img src="images/connector.jpg"></img>
+</div>
+<table>
+<tr>
+<th>Pin</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VRef</td>
+</tr>
+<tr>
+<td>2</td>
+<td>VSupply</td>
+</tr>
+<tr>
+<td>3</td>
+<td>TRST/</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>5</td>
+<td>TDI</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>7</td>
+<td>TMS/SWDIO</td>
+</tr>
+<tr>
+<td>8</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>9</td>
+<td>TCK/SWDCLK</td>
+</tr>
+<tr>
+<td>10</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>11</td>
+<td>RTCK</td>
+</tr>
+<tr>
+<td>12</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>13</td>
+<td>TDO/SWO</td>
+</tr>
+<tr>
+<td>14</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>15</td>
+<td>SRST/</td>
+</tr>
+<tr>
+<td>16</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>17</td>
+<td>DBGRQ</td>
+</tr>
+<tr>
+<td>18</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>19</td>
+<td>DBGACK</td>
+</tr>
+<tr>
+<td>20</td>
+<td>GND</td>
+</tr>
+</table>
+</body>
+</html>

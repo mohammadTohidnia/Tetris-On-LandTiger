@@ -1,0 +1,9 @@
+ID=Can_bus
+Author=Luca Crupi
+Version=1.0-0
+Date=30-03-2021
+Description=index.html
+Schematic=schematic.bmp 
+Lib=CAN_bus.dll
+Models=Model.obj
+LoadAfterID=LandTigerBase

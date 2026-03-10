@@ -1,0 +1,118 @@
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<table>
+<tr>
+<th>Jumper</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>JP1</td>
+<td>JP1 is used to connect onboard backup battery to the
+RTC.
+Battery backup: Jumper inserted
+No battery backup: Jumper removed</td>
+</tr>
+<tr>
+<td>JP2</td>
+<td>JP2 is used to enable the external speaker.
+Speaker connected to P0.26: Jumper short
+No Speaker output: Jumper removed</td>
+</tr>
+<tr>
+<td>JP3</td>
+<td>JP3 is used to select the external 5V power supply or
+USB powersupply.
+External 5V power supply: Jumper short1-2
+USB-powered: Jumper short 2-3</td>
+</tr>
+<tr>
+<td>JP4</td>
+<td>JTAG_SEL Insert Jumper to
+enable external
+JTAG device.
+Remove Jumper to
+enable onboard
+JLINK emulator</td>
+</tr>
+<tr>
+<td>JP5</td>
+<td>INT0 (P2.10)
+connected to Key2
+Insert Jumper to
+enable manual
+entering ISP mode</td>
+</tr>
+<tr>
+<td>JP6</td>
+<td>Enable ISP Select.
+Enable ISP Select: JP6 inserted
+Disable ISP Select: JP6 removed<br>
+Insert Jumper to
+enable external
+entering ISP mode</td>
+</tr>
+<tr>
+<td>JP7</td>
+<td>Enable ISP Reset.
+Enable ISP Reset: JP7 inserted
+Disable ISP Reset: JP7 removed
+<br>Reset
+activated by DTR
+Insert Jumper to
+enable external
+Reset</td>
+</tr>
+<tr>
+<td>JP8</td>
+<td>Enable databus LEDs.
+LEDs enabled: JP8 inserted
+LEDs disabled: JP8 removed</td>
+</tr>
+<tr>
+<td>JP9</td>
+<td>Select USB-D +.
+USB device: JP9 set to 1-2<br>
+USB host: JP9 set to 3-4</td>
+</tr>
+<tr>
+<td>JP10</td>
+<td>Select USB-D + signal pull-up resistor mode.
+LED LD14 is lit when the pull-up is activated.
+USB pull-up control by P2.9: JP10 set to 1-2
+(P2.9 control signal is active low).
+USB permanent pull-up: JP10 set to 2-3</td>
+</tr>
+<tr>
+<td>JP11</td>
+<td>Select USB-D -.
+USB device: JP11 set to 1-2<br>
+USB host: JP11 set to 3-4</td>
+</tr>
+<tr>
+<td>JP12</td>
+<td>JP12 is used to enable the VR1 connection to ADC
+input (P1.31 AD0.5).
+VR1 Connected to AD0.5: Jumper short
+No ADC input: Jumper removed</td>
+</tr>
+</table>
+</body>
+</html>

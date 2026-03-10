@@ -1,0 +1,10 @@
+ID=LandTigerBase
+Author=Gabriele Filipponi
+Version=1.0-0
+Date=02-02-2021
+Description=index.html
+Schematic=schematic.bmp 
+Lib=LandTigerBase.dll
+Models=Board.obj
+Models=Board (LCD).obj
+LoadAfterID=

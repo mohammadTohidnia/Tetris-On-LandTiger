@@ -1,0 +1,9 @@
+ID=Jumpers
+Author=Gabriele Filipponi
+Version=1.0-0
+Date=05-02-2021
+Description=index.html
+Schematic=schematic.bmp 
+Lib=Jumpers.dll
+Models=Jumpers.obj
+LoadAfterID=LandTigerBase

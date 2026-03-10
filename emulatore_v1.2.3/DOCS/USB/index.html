@@ -1,0 +1,212 @@
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.container
+{
+	overflow: hidden;
+	text-align: center;
+}
+
+.container img
+{
+	
+}
+</style>
+</head>
+<body>
+<h2>USB HOST<h2>
+<span>
+LandTiger LPC17XX development board provides a full-speed USB 2.0 Host port (CN11),
+through a standard USB-A Type connector. The USB host port may be used to connect USB
+peripherals, such as: USB disk, USB mouse, USB keyboard and other equipment.
+Set JP9, JP11 jumpers into 3-4 position for the USB Host interface.<br>
+Connected devices should be provided with 5V power. This power is activated under control
+of the user program. Note that maximum current is limited.
+</span>
+<table>
+<tr>
+<th>IO Pin</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>P1.19</td>
+<td>Activate USB Host power.
+LED LD15 is lit when power is activated.
+USB power control by P1.19: control signal is active
+low.</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>IO Pin</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>P0.29</td>
+<td>USB_D+
+Connected to either the Host or Device connector by
+JP9
+Release P0.29 pin by removing JP9</td>
+</tr>
+<tr>
+<td>P0.30</td>
+<td>USB DConnected
+to either the Host or Device connector by
+JP11
+Release P0.30 pin by removing JP11</td>
+</tr>
+<tr>
+<td>P1.22</td>
+<td>Sense USB Host power state.
+USB powersense by P1.22: input signal is active
+high.
+Release P1.22 pin by removing R78</td>
+</tr>
+<tr>
+<td>P1.19</td>
+<td>Activate USB Host power.
+LED LD15 is lit when power is activated.
+USB power control by P1.19: control signal is active
+low.
+P1.19 may be used a general purpose output and
+LD15 may be used as general purpose indicator when
+USB Host functions are disabled.</td>
+</tr>
+</table>
+<h3>CN11 USB AB-type pin functions</h3>
+<table>
+<tr>
+<th>Pin</th>
+<th>Description</th>
+<th>Note</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VBUS (5V)</td>
+<td>Red</td>
+</tr>
+<tr>
+<td>2</td>
+<td>D-</td>
+<td>White</td>
+</tr>
+<tr>
+<td>3</td>
+<td>D+</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td>Black</td>
+</tr>
+</table>
+<br>
+<br>
+<div class="container">
+<img src="images/all.jpg"></img>
+</div>
+<br>
+<br>
+<h2>USB DEVICE<h2>
+<span>The Land Tiger LPC17XX development board provides a full-speed USB 2.0 device port
+(CN12), through a standard USB-B Type connector. Set JP9, JP11 jumper Plugged into 1-2
+position for the USB Device interface.</span>
+<h3>LPC1768 reserved pins for the USB Device functions.</h3>
+<table>
+<tr>
+<th>IO Pin</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>P0.29</td>
+<td>USB_D+
+Connected to either the Host or Device connector by
+JP9
+Release P0.29 pin by removing JP9</td>
+</tr>
+<tr>
+<td>P0.30</td>
+<td>USB DConnected
+to either the Host or Device connector by
+JP11
+Release P0.30 pin by removing JP11</td>
+</tr>
+<tr>
+<td>P1.30</td>
+<td>Sense VBUS from host in USB- Device mode.
+VBUS is active high.
+Release P1.30 pin by removing R123.</td>
+</tr>
+<tr>
+<td>P1.18</td>
+<td>USB Device is up indicator.
+LED LD13 is lit when USB is activated.
+(active low)
+P1.18 may be used a general purpose output and
+LD13 may be used as general purpose indicator when
+USB Device functions are disabled.</td>
+</tr>
+<tr>
+<td>P2.9</td>
+<td>Activate USB Device pull-up.
+LED LD14 is lit when the pull-up is activated.
+USB pull-up control by P2.9: JP10 set to 1-2
+(P2.9 control signal is active low).
+P2.9 may be used a general purpose output and LD14
+may be used as general purpose indicator when USB
+Device functions are disabled.</td>
+</tr>
+</table>
+<h3>CN12 USB B-type pin functions</h3>
+<table>
+<tr>
+<th>Pin</th>
+<th>Description</th>
+<th>Note</th>
+</tr>
+<tr>
+<td>1</td>
+<td>VBUS (5V)</td>
+<td>Red</td>
+</tr>
+<tr>
+<td>2</td>
+<td>D-</td>
+<td>White</td>
+</tr>
+<tr>
+<td>3</td>
+<td>D+</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND</td>
+<td>Black</td>
+</tr>
+</table>
+<br>
+<br>
+<div class="container">
+<img src="images/connector.jpg"></img>
+</div>
+<br>
+<br>
+</body>
+</html>

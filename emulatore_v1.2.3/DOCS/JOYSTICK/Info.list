@@ -1,0 +1,9 @@
+ID=Joystick
+Author=Gabriele Filipponi
+Version=1.0-0
+Date=04-02-2021
+Description=index.html
+Schematic=schematic.bmp 
+Lib=Joystick.dll
+Models=Model.obj
+LoadAfterID=LandTigerBase

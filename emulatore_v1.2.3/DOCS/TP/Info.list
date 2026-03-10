@@ -1,0 +1,10 @@
+ID=TouchPanel
+Author=Gabriele Filipponi
+Version=1.0-0
+Date=10-02-2021
+Description=index.html
+Schematic=schematic.bmp 
+Lib=TouchPanel.dll
+Models=Model.obj
+LoadAfterID=LandTigerBase
+LoadAfterID=GLCD

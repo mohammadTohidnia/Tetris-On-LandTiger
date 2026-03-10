@@ -1,0 +1,60 @@
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<span>
+The LandTiger LPC17XX board features a 5 way digital joystick (SW5). The joystick may be
+used for example to select options in a menu shown on the LCD. Each direction (up, down,
+left, right) and the Select function are connected to a dedicated digital inputpin on the
+LPC17XX. Multiple keys can be pressed at the same time (e.g. up and right). Inputpins are
+active low when a key is pressed. The inputpins are hardware debounced.
+</span>
+<h3>Write operation sequence for 16 bit Databus<h3>
+<table>
+<tr>
+<th>IO Pin</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>P1.25</td>
+<td>Select (Active Low)</td>
+</tr>
+<tr>
+<td>P1.26</td>
+<td>Down (Active Low)</td>
+</tr>
+<tr>
+<td>P1.27</td>
+<td>Left (Active Low)</td>
+</tr>
+<tr>
+<td>P1.28</td>
+<td>Right (Active Low)</td>
+</tr>
+<tr>
+<td>P1.29</td>
+<td>Up (Active Low)</td>
+</tr>
+</table>
+<span>
+The Joystick interface may be fully disabled by removing 0-Ohm resistors. Removing
+R65, R66, R67, R68 and R69 will release P1.29, P1.28, P1.27, P1.26 and P1.25.
+</span>
+</body>
+</html>

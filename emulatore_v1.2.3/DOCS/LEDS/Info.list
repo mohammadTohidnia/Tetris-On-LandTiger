@@ -1,0 +1,10 @@
+ID=Leds
+Author=Gabriele Filipponi
+Version=1.0-0
+Date=05-02-2021
+Description=index.html
+Schematic=schematic.bmp 
+Lib=Leds.dll
+Models=LEDS(ON).obj
+LoadAfterID=LandTigerBase
+LoadAfterID=Jumpers

@@ -1,0 +1,481 @@
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<span>
+The datalines are connected to an 8bit - 16bit conversion circuitry provided by U8 (16bit
+bidirectional buffer, 74ALVC164245) and U9 (8bit latch, 74LV573). The tables below show
+the steps needed to use the 8-16 bit conversion circuitry for Read and Write operations. There
+are 3 specific controllines required for the 8-16 bit conversion unit: LCD_DIR, LCD_EN,
+LCD_LE.
+</span>
+<h3>Write operation sequence for 16 bit Databus<h3>
+<table>
+<tr>
+<th>Steps</th>
+<th>Control/datapin</th>
+<th>IO Pin</th>
+</tr>
+<tr>
+<td>Set P2.0-P2.7 as Output</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Set Buffer Direction to WR</td>
+<td>LCD_DIR=1</td>
+<td>P0.21</td>
+</tr>
+<tr>
+<td>Enable buffer outputs</td>
+<td>LCD_EN=0</td>
+<td>P019</td>
+</tr>
+<tr>
+<td>Latch D00-D07 Transparant</td>
+<td>LCD_LE=1</td>
+<td>P0.20</td>
+</tr>
+<tr>
+<td>Setup D00-D07</td>
+<td>Write LSBs</td>
+<td>P2.0-P2.7</td>
+</tr>
+<tr>
+<td>Latch D00-D07</td>
+<td>LCD_LE=0</td>
+<td>P0.20</td>
+</tr>
+<tr>
+<td>Setup D08-D15</td>
+<td>Write MSBs</td>
+<td>P2.0-P2.7</td>
+</tr>
+<tr>
+<td>Select Device</td>
+<td>LCD_CS=0</td>
+<td>P0.22</td>
+</tr>
+<tr>
+<td>Select Data/Control Reg</td>
+<td>LCD_RS=X</td>
+<td>P0.23</td>
+</tr>
+<tr>
+<td>Write Data (Start)</td>
+<td>LCD_WR=0</td>
+<td>P0.24</td>
+</tr>
+<tr>
+<td>Write Data (End)</td>
+<td>LCD_WR=1</td>
+<td>P0.24</td>
+</tr>
+<tr>
+<td>Deselect Device</td>
+<td>LCD_CS=1</td>
+<td>P0.22</td>
+</tr>
+</table>
+<h3>Read operation sequence for 16 bit Databus<h3>
+<table>
+<tr>
+<th>Steps</th>
+<th>Control/datapin</th>
+<th>IO Pin</th>
+</tr>
+<tr>
+<td>Set P2.0-P2.7 as Input</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Set Buffer Direction to RD</td>
+<td>LCD_DIR=0</td>
+<td>P0.21</td>
+</tr>
+<tr>
+<td>Enable MSB buffer outputs</td>
+<td>LCD_EN=0</td>
+<td>P019</td>
+</tr>
+<tr>
+<td>Select Device</td>
+<td>LCD_CS=0</td>
+<td>P0.22</td>
+</tr>
+<tr>
+<td>Select Data/Control Reg</td>
+<td>LCD_RS=X</td>
+<td>P0.23</td>
+</tr>
+<tr>
+<td>Read Data (Start)</td>
+<td>LCD_RD=0</td>
+<td>P0.25</td>
+</tr>
+<tr>
+<td>Read D08-D15</td>
+<td>Read MSBs</td>
+<td>P2.0-P2.7</td>
+</tr>
+<tr>
+<td>Enable LSB buffer outputs</td>
+<td>LCD_EN=1</td>
+<td>P0.19</td>
+</tr>
+<tr>
+<td>Read D00-D07</td>
+<td>Read LSBs</td>
+<td>P2.0-P2.7</td>
+</tr>
+<tr>
+<td>Read Data (End)</td>
+<td>LCD_RD=1</td>
+<td>P0.25</td>
+</tr>
+</tr>
+<tr>
+<td>Deselect Device</td>
+<td>LCD_CS=1</td>
+<td>P0.22</td>
+</tr>
+</table>
+<h3>Databus interface description<h3>
+<table>
+<tr>
+<th>Description</th>
+<th>IO Pin</th>
+</tr>
+<tr>
+<td>DB00</td>
+<td>P2.0 (latched)</td>
+</tr>
+<tr>
+<td>DB01</td>
+<td>P2.1 (latched)</td>
+</tr>
+<tr>
+<td>DB02</td>
+<td>P2.2 (latched)</td>
+</tr>
+<tr>
+<td>DB03</td>
+<td>P2.3 (latched)</td>
+</tr>
+<tr>
+<td>DB04</td>
+<td>P2.4 (latched)</td>
+</tr>
+<tr>
+<td>DB05</td>
+<td>P2.5 (latched)</td>
+</tr>
+<tr>
+<td>DB06</td>
+<td>P2.6 (latched)</td>
+</tr>
+<tr>
+<td>DB07</td>
+<td>P2.7 (latched)</td>
+</tr>
+<tr>
+<td>DB08</td>
+<td>P2.0 (buffered)</td>
+</tr>
+<tr>
+<td>DB09</td>
+<td>P2.1 (buffered)</td>
+</tr>
+<tr>
+<td>DB10</td>
+<td>P2.2 (buffered)</td>
+</tr>
+<tr>
+<td>DB11</td>
+<td>P2.3 (buffered)</td>
+</tr>
+<tr>
+<td>DB12</td>
+<td>P2.4 (buffered)</td>
+</tr>
+<tr>
+<td>DB13</td>
+<td>P2.5 (buffered)</td>
+</tr>
+<tr>
+<td>DB14</td>
+<td>P2.6 (buffered)</td>
+</tr>
+<tr>
+<td>DB15</td>
+<td>P2.7 (buffered)</td>
+</tr>
+<tr>
+<td>/CS</td>
+<td>P0.22</td>
+</tr>
+<tr>
+<td>RS</td>
+<td>P0.23</td>
+</tr>
+<tr>
+<td>/WR</td>
+<td>P0.24</td>
+</tr>
+<tr>
+<td>/RD</td>
+<td>P0.25</td>
+</tr>
+<tr>
+<td>RESET</td>
+<td>RESET</td>
+</tr>
+</table>
+<h3>Display Interface</h3>
+<span>
+The CN7 Databus interface of the Land Tiger LPC17XX development board can be
+connected to a 2.8 or 3.2 inch 320X240 TFT color LCD. The datalines are connected to P2.0
+... P2.7 and by 8bit - 16bit conversion circuit connected to the LCD.
+In addition to the 16 bit databus, the LCD interface also supports a touchschreen controller.
+This interface is provided as an SPI bus.
+Depending on the LCD board the LCD backlight may be controlled either as on/off or with
+variable brightness (PWM control).
+The databus/LCD connector pinout is defined in the table below:
+</span>
+<table>
+<tr>
+<th>Pin</th>
+<th>Description</th>
+<th>IO Pin</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td>1</td>
+<td>5V</td>
+<td>Power supply</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>GND</td>
+<td>Ground</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>DB00</td>
+<td>P2.0 (latched)</td>
+<td>Databus</td>
+</tr>
+<tr>
+<td>4</td>
+<td>DB01</td>
+<td>P2.1 (latched)</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>DB02</td>
+<td>P2.2 (latched)</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>DB03</td>
+<td>P2.3 (latched)</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>DB04</td>
+<td>P2.4 (latched)</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>DB05</td>
+<td>P2.5 (latched)</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>DB06</td>
+<td>P2.6 (latched)</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>DB07</td>
+<td>P2.7 (latched)</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>DB08</td>
+<td>P2.0 (buffered)</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>DB09</td>
+<td>P2.1 (buffered)</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>DB10</td>
+<td>P2.2 (buffered)</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>DB110</td>
+<td>P2.3 (buffered)</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>DB12</td>
+<td>P2.4 (buffered)</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>DB13</td>
+<td>P2.5 (buffered)</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>DB14</td>
+<td>P2.6 (buffered)</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>DB15</td>
+<td>P2.7 (buffered)</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>/CS</td>
+<td>P0.22</td>
+<td>Low active</td>
+</tr>
+<tr>
+<td>20</td>
+<td>RS</td>
+<td>P0.23</td>
+<td>RS = 1: Instruction Register RS = 0: Data Register</td>
+</tr>
+<tr>
+<td>21</td>
+<td>/WR</td>
+<td>P0.24</td>
+<td>Low active WR</td>
+</tr>
+<tr>
+<td>22</td>
+<td>/RD</td>
+<td>P0.25</td>
+<td>Low active RD</td>
+</tr>
+<tr>
+<td>23</td>
+<td>RESET</td>
+<td>RESET</td>
+<td>Low active</td>
+</tr>
+<tr>
+<td>24</td>
+<td>NC</td>
+<td>NC</td>
+<td>Do not connect</td>
+</tr>
+<tr>
+<td>25</td>
+<td>BLVCC</td>
+<td>5V</td>
+<td>Backlight VCC</td>
+</tr>
+<tr>
+<td>26</td>
+<td>BLGND</td>
+<td>GND</td>
+<td>Backlight GND</td>
+</tr>
+<tr>
+<td>27</td>
+<td>BLCNT (Brightn. PWM)</td>
+<td>NC</td>
+<td>Control of the backlight brightness via PWM</td>
+</tr>
+<tr>
+<td>28</td>
+<td>TP_INT Touchscreen</td>
+<td>P2.13</td>
+<td>Low level while the touch screen detects pressing</td>
+</tr>
+<tr>
+<td>29</td>
+<td>/TP_CS Touchscreen</td>
+<td>P0.6</td>
+<td>Low active</td>
+</tr>
+<tr>
+<td>30</td>
+<td>TP_SCK Touchscreen</td>
+<td>P0.7</td>
+<td>Connects to SPI SCK</td>
+</tr>
+<tr>
+<td>31</td>
+<td>TP_MOSI Touchscreen</td>
+<td>P0.9</td>
+<td>Connects to SPI MOSI</td>
+</tr>
+<tr>
+<td>32</td>
+<td>TP_MISO Touchscreen</td>
+<td>P0.8</td>
+<td>Connects to SPI MISO</td>
+</tr>
+<tr>
+<td>33</td>
+<td>3V3</td>
+<td>3V3</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>GND</td>
+<td>GND</td>
+<td></td>
+</tr>
+</table>
+<span>
+LandTiger is compatible with several types of Color LCDs. There are currently two types of
+3.2” displays available. Both displays are functionally identical, but have different LCD
+panels and some differences in the electrical design. The displays are identified as HY32C
+and HY32D.
+</span>
+</body>
+</html>

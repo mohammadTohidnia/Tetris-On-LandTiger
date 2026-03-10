@@ -1,0 +1,9 @@
+ID=ETHERNET
+Author=Salvatore Gabriele La Greca
+Version=1.0-0
+Date=26-04-2021
+Description=index.html
+Schematic=schematic.bmp 
+Lib=Ethernet.dll
+Models=Model.obj
+LoadAfterID=LandTigerBase
