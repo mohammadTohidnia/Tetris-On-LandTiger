@@ -13,3 +13,6 @@
 5. Go to **Options for Target** and navigate to the **Debug** tab (specifically for the target `SW_Debug`).
 6. Find the **Parameter** textbox located next to **Dialog DLL**.
 7. Type **`-dLandTiger`** into this textbox. When you are finished, the full text in the parameter box should read: **`-pLPC1768 -dLandTiger`**.
+
+## Acknowledgments
+This LandTiger Emulator was originally designed and developed by former students at Politecnico di Torino (PoliTo). It was provided for educational use by our professor. All credit for the architecture and creation of this tool belongs to the original student developers.
